@@ -23,9 +23,11 @@ public class Player : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(verticalInput, 0, horizontalInput);
+        Vector3 direction = new Vector3(horizontalInput, 0f, verticalInput);
         Vector3 velocity = direction * _speed;
         velocity.y -= _gravity;
+        //reasign local space to world space values
+        velocity = transform.transform.TransformDirection(velocity);
         _controller.Move(velocity * Time.deltaTime);
     }
 }
