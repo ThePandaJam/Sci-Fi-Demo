@@ -1,0 +1,4 @@
+repository "Sci-Fi-Demo@RonnieCodesOrg@cloud"
+  path "/"
+    br "/main"
+    co "/main"
