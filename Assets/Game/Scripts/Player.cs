@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     private CharacterController _controller;
     [SerializeField] private float _speed = 3.5f;
     private float _gravity = 9.81f;
+
+    [SerializeField] private GameObject _muzzleFlash;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +24,19 @@ public class Player : MonoBehaviour
         CalculateMovement();
         //if left click
         //   cast ray from centre point of main camera
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
+            _muzzleFlash.SetActive(true);
             Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hitInfo;
             if (Physics.Raycast(rayOrigin, out hitInfo))
             {
                 Debug.Log("Hit: " + hitInfo.transform.name);
             }
+        }
+        else
+        {
+            _muzzleFlash.SetActive(false);
         }
         
         //if escape key pressed
