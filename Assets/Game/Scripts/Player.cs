@@ -20,6 +20,18 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculateMovement();
+        //if left click
+        //   cast ray from centre point of main camera
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            RaycastHit hitInfo;
+            if (Physics.Raycast(rayOrigin, out hitInfo))
+            {
+                Debug.Log("Hit: " + hitInfo.transform.name);
+            }
+        }
+        
         //if escape key pressed
         //  unhide mouse cursor
         if (Input.GetKeyDown(KeyCode.Escape))
