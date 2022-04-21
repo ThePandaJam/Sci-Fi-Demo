@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _muzzleFlash;
 
     [SerializeField] private GameObject _hitMarkerPrefab;
+    [SerializeField] private AudioSource _audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,11 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             _muzzleFlash.SetActive(true);
+            if (!_audioSource.isPlaying)
+            {
+                _audioSource.Play();
+            }
+            
             Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hitInfo;
             if (Physics.Raycast(rayOrigin, out hitInfo))
@@ -41,6 +47,7 @@ public class Player : MonoBehaviour
         else
         {
             _muzzleFlash.SetActive(false);
+            _audioSource.Stop();
         }
         
         //if escape key pressed
