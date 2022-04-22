@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     private int _maxAmmo = 50;
 
     private bool _isReloading = false;
+
+    private UIManager _uiManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         _currentAmmo = _maxAmmo;
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -63,6 +66,7 @@ public class Player : MonoBehaviour
     {
         _muzzleFlash.SetActive(true);
         _currentAmmo--;
+        _uiManager.UpdateAmmoDisplay(_currentAmmo);
         if (!_audioSource.isPlaying)
         {
             _audioSource.Play();
@@ -93,6 +97,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         _currentAmmo = _maxAmmo;
+        _uiManager.UpdateAmmoDisplay(_currentAmmo);
         _isReloading = false;
     }
 }
