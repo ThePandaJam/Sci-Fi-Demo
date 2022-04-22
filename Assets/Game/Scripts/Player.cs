@@ -114,4 +114,9 @@ public class Player : MonoBehaviour
         _hasCoin = false;
         //update UI
     }
+
+    public bool PlayerHasCoin()
+    {
+        return _hasCoin;
+    }
 }
