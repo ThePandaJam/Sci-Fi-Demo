@@ -106,10 +106,12 @@ public class Player : MonoBehaviour
     public void CollectCoin()
     {
         _hasCoin = true;
+        //update UI
     }
 
     public void SpendCoin()
     {
         _hasCoin = false;
+        //update UI
     }
 }
