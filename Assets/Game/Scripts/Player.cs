@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     private UIManager _uiManager;
     //variable for hascoin
     private bool _hasCoin = false;
+
+    [SerializeField] private GameObject _weapon;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,7 @@ public class Player : MonoBehaviour
         //if left click
         //   cast ray from centre point of main camera
         //TODO Reload
-        if ((_currentAmmo > 0) && Input.GetMouseButton(0))
+        if (_weapon.active && (_currentAmmo > 0) && Input.GetMouseButton(0))
         {
             Shoot();
         }
@@ -113,5 +115,15 @@ public class Player : MonoBehaviour
     {
         _hasCoin = false;
         //update UI
+    }
+
+    public bool PlayerHasCoin()
+    {
+        return _hasCoin;
+    }
+
+    public void EnableWeapons()
+    {
+        _weapon.SetActive(true);
     }
 }
