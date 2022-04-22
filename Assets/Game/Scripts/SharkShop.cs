@@ -34,6 +34,7 @@ public class SharkShop : MonoBehaviour
                         _weaponSaleAudio.Play();
                         _uiManager.ToggleCoinDisplay(false);
                         //sell weapon
+                        player.EnableWeapons();
                     }
                     else
                     {
