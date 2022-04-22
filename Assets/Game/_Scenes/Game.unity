@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 632464821}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1457,8 +1457,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5835469
-  m_Center: {x: 0, y: -0.36248776, z: 0.1400572}
+  m_Radius: 1.026248
+  m_Center: {x: 0, y: -0.6384662, z: 0.30679038}
 --- !u!54 &1898953175
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1475,6 +1475,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1898953176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898953170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf459d0e23d9246ba92aa5ed30d7f5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinPickupSound: {fileID: 8300000, guid: 8b58dd752e4a81b47a0deb149a13157d, type: 3}
 --- !u!1 &2000757801
 GameObject:
   m_ObjectHideFlags: 0

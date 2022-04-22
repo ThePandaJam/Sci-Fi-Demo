@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     private bool _isReloading = false;
 
     private UIManager _uiManager;
+    //variable for hascoin
+    private bool _hasCoin = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -99,5 +101,15 @@ public class Player : MonoBehaviour
         _currentAmmo = _maxAmmo;
         _uiManager.UpdateAmmoDisplay(_currentAmmo);
         _isReloading = false;
+    }
+
+    public void CollectCoin()
+    {
+        _hasCoin = true;
+    }
+
+    public void SpendCoin()
+    {
+        _hasCoin = false;
     }
 }
