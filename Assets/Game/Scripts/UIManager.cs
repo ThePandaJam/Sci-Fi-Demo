@@ -14,15 +14,6 @@ public class UIManager : MonoBehaviour
 
     public void ToggleCoinDisplay(bool playerHasCoin)
     {
-        if (playerHasCoin)
-        {
-            //make coin visible
-            _coinDisplay.SetActive(true);
-        }
-        else if (!playerHasCoin)
-        {
-            //make coin invisible
-            _coinDisplay.SetActive(false);
-        }
+         _coinDisplay.SetActive(playerHasCoin);
     }
 }
